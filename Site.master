@@ -1,0 +1,217 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeFile="Site.master.vb" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge; IE=EmulateIE7; IE=EmulateIE9">
+    <meta name="keywords" content="FRAP, easyFRAP, Koulouras, Koulouras Grigorios, Koulouras Grigoris, Lygeroy Zoi, Lygeroy, Cell Cycle Laboratory, University of Patras, Greece, easyFRAP web, easyFRAP-web, Fluorecence Recovery After Photobleaching, protein kinetics, bioinformatics, FRAP analysis, Giakoumakis Nikolaos, Rapsomaniki Maria Anna, Rapsomaniki, Giakoumakis, Panagopoulos Andreas, Panagopoulos, Taraviras Stavros, Taraviras, cell cycle control, genome integrity, FRAP analysis" />
+    <!--[if IE]><script src="path/to/excanvas.js"></script><![endif]-->
+    <title><%: Page.Title %></title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <!-- JQuery -->
+    <script type="text/javascript" src="Scripts/jquery-3.1.1.js"></script>
+    <%--<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>--%>
+    <!-- Sweet Alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> 
+    <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css">
+    <!-- favicon -->
+    <link href="~/favicon2.png" rel="shortcut icon" type="image/x-icon" />
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Font Awesome -->
+    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">--%>
+    <link href="Content/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="Content/mdb.css" rel="stylesheet">  
+    <!-- Material Design Bootstrap -->
+    <script type="text/javascript" src="Scripts/mdb.js"></script> 
+    <!-- Template style -->
+    <link href="Content/style.css" rel="stylesheet">
+    <!-- Android style Toast Messages-->
+    <link href="Content/toastr.css" rel="stylesheet"/>
+    <!-- Alert Boxes-->
+    <link href="Content/sweetalert.css" rel="stylesheet" />
+    <!-- get the required files from 3rd party sources -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>  
+<script type="text/javascript">  
+       $(window).bind("load", function () {  
+           var footer = $("#footer");  
+           var pos = footer.position();  
+           var height = $(window).height();  
+           height = height - pos.top;  
+           height = height - footer.height();
+           height = height + 20;
+           if (height > 0) {  
+               footer.css({  
+                   'margin-top': height + 'px'  
+               });  
+           }  
+       });  
+</script> 
+<script>
+        function ShowCitations() {
+            swal({
+                title: "<legend>How to cite easyFRAP-web</legend>",
+                text: "<label class='col-md-12 control-label'>We kindly ask you to cite easyFRAP-web properly:</label><label class='col-md-12 control-label'>Koulouras G, Rapsomaniki MA, Giakoumakis NN, Panagopoulos A, Taraviras S and Lygerou Z (2017). <b><i>EasyFRAP-web: a web-based tool for the analysis of Fluorescence Recovery After Photo-bleaching (FRAP) data.</i></b> (Manuscript submitted for publication)</label>",
+                cancelButtonText: "OK",
+                showCancelButton: true,
+                showConfirmButton: false,
+                html: true
+            }); 
+        }
+</script>
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-96619605-1', 'auto');
+  ga('send', 'pageview');
+
+   </script>
+</head>
+<body>
+      <!-- SCRIPTS -->
+
+<form runat="server">
+
+        <asp:ScriptManager runat="server" EnablePartialRendering="true" AsyncPostBackTimeout="6000">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+<!-- Navigation -->
+  <nav class="navbar z-depth-2 info-color">
+    <div class="container ">
+      <div class="navbar-header">
+<%--        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>--%>
+        <a class="navbar-brand waves-effect waves-light" runat="server" href="~/"><img src="<%= Page.ResolveUrl("~")%>img/easyFRAP-logo-Web-PNG.png" height="65" width="220" class="img-responsive center-block" /></a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+        <li><a runat="server" class="grey-text text-lighten-3" href="~/">Run easyFRAP</a></li>
+        <li><a runat="server" class="grey-text text-lighten-3" href="~/GettingStarted/">How to use</a></li>
+        <li><a runat="server" class="grey-text text-lighten-3" href="~/FAQ/">FAQ</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">
+                Downloads<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+             <%--<li><a runat="server" href="~/Default">Downloads</a></li>
+             <li class="divider"></li>--%>
+             <li><a href="<%= Page.ResolveUrl("~")%>sample_files.zip">Sample Datasets</a></li>
+             <li class="divider"></li>
+             <li><a href="<%= Page.ResolveUrl("~")%>easyfrap_web_manual_appendix.pdf" target="_blank">Manual Appendix</a></li>
+             <li class="divider"></li>
+             <li><a href="http://ccl.med.upatras.gr/index.php?id=easyfrap" target="_blank">Standalone Version</a></li>
+             </ul>
+             </li>
+<%--             <li><a runat="server" class="grey-text text-lighten-3" href="~/FAQ">FAQ</a></li>--%>
+             <li><a runat="server" class="grey-text text-lighten-3" href="~/About">About</a></li>
+<%--             <li><a runat="server" class="grey-text text-lighten-3" href="~/Contact">Contact</a></li>--%>
+        </ul>
+
+<%--        <form class="navbar-form navbar-right waves-effect waves-light" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+        </form>--%>
+      </div>
+
+    </div>
+  </nav>
+<div id="maindiv">
+<asp:ContentPlaceHolder ID="MainContent" runat="server">
+
+</asp:ContentPlaceHolder>
+</div>
+  <!-- Footer -->
+    
+  <div id="footer"><footer class="page-footer info-color darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+            <p class="white-text center-on-small-only">QUICKSTART</p>
+            <p class="white-text center-on-small-only">Follow our step-by-step quick quide to learn how to use and analyze your FRAP experimental data.</p>
+            <a href="~/GettingStarted/" runat="server" class="btn btn-danger waves-effect waves-light">Read More</a>
+        </div>
+          
+<%--        <hr class="hidden-lg hidden-md">--%>
+
+        <%--<div class="col-md-2">--%>
+          <div class="col-md-3 col-md-offset-1">
+          <p class="white-text center-on-small-only">USEFUL LINKS</p>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="http://ccl.med.upatras.gr" target="_blank"><u>Cell Cycle Laboratory</u></a>
+            </li>
+            <li><a class="grey-text text-lighten-3" href="http://www.upatras.gr/en" target="_blank"><u>University of Patras</u></a>
+            </li>
+<%--            <li><a class="grey-text text-lighten-3" href="#" target="_blank">Support</a>
+            </li>
+            <li><a class="grey-text text-lighten-3" href="#" target="_blank">Bug report</a>
+            </li>--%>
+
+
+          </ul>
+        </div>
+        <hr class="hidden-lg hidden-md">
+
+        <div class="col-md-3 text-center">
+          <p class="white-text text-center">FOLLOW US</p>
+          <%--<a target="_blank" href="https://www.facebook.com" class="btn-floating btn-large fb-bg waves-effect waves-light"><i class="fa fa-facebook"> </i></a> --%>
+          <a target="_blank" href="https://twitter.com/easyFRAP_web" class="btn-floating btn-large tw-bg waves-effect waves-light"><i class="fa fa-twitter"> </i></a>
+          <%--<a target="_blank" href="https://youtube.com" class="btn-floating btn-large gplus-bg waves-effect waves-light"><i class="fa fa-youtube"> </i></a> --%>
+        </div> 
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="col-md-7 col-md-offset-1"><a class="grey-text text-lighten-3">&copy; <%: DateTime.Now.Year %> - easyFRAP-web</a></div>
+        <div class="col-md-4"><a class="grey-text text-lighten-3" href="javascript:ShowCitations();" runat="server">How to cite</a> | <a class="grey-text text-lighten-3" href="~/Software/" runat="server">Software & Libraries</a> | <a class="grey-text text-lighten-3" href="~/Versions/" runat="server">Version 1.1</a></div>
+
+          
+      </div>
+    </div>
+  </footer></div>
+
+
+
+
+
+</form>
+</body>
+</html>

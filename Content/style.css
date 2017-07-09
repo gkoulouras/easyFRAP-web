@@ -1,0 +1,37 @@
+.intro-row {
+    margin-top: 30px;
+}
+
+.card-panel p {
+    font-size: 20px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 30px;
+    color: #333;
+}
+
+.featured-img {
+    margin-top: 20px;
+}
+
+
+.fb-bg {
+background-color: #3B5998;
+}
+.tw-bg {
+background-color: #55ACEE;
+}
+.gplus-bg {
+background-color: #DD4B39;
+}
+
+footer.page-footer a {
+line-height: 25px;
+}
+
+footer.page-footer a {
+color: #fff;
+font-size: 14px;
+}

@@ -3,8 +3,9 @@ The web edition of the easyFRAP tool. A software tool for the analysis of Fluore
 </br> </br> Visit http://easyfrap.vmnet.upatras.gr/ to use this tool. Developed and maintained on behalf of the <a href="http://ccl.med.upatras.gr/" target="_blank">Cell Cycle Laboratory</a>, University of Patras, Greece.
 
 <strong>Main Page:</strong>
-
+</br>
 ![easyFRAP-web Main Page](../master/easyfrap_screenshot.png)
 
 <strong>Documentation:</strong>
+</br>
 A detailed how-to guide can be found at: http://easyfrap.vmnet.upatras.gr/GettingStarted/

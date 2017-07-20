@@ -5,3 +5,6 @@ The web edition of the easyFRAP tool. A software tool for the analysis of Fluore
 <strong>Main Page:</strong>
 
 ![easyFRAP-web Main Page](../master/easyfrap_screenshot.png)
+
+<strong>Documentation:</strong>
+A detailed how-to guide can be found at: http://easyfrap.vmnet.upatras.gr/GettingStarted/

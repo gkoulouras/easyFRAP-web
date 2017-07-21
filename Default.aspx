@@ -660,6 +660,7 @@ PopupControlID="UpdateProgress" BackgroundCssClass="modalPopup" />
                     objfornorm,
             { 
                 labels: objlabelsfornorm,
+                valueRange: [0, 1.2],
                 legend: 'onmouseover',
                 labelsDiv: 'labelsnormdiv',
                 labelsSeparateLines: true,
@@ -692,6 +693,7 @@ PopupControlID="UpdateProgress" BackgroundCssClass="modalPopup" />
                 
                 //labels: [ "" , "Mean Normalized Value"],
                 labels: objlabelsforstd,
+                valueRange: [0, 1.2],
                 legend: 'onmouseover',
                 customBars: true,
                 connectSeparatedPoints: true,
@@ -907,6 +909,7 @@ PopupControlID="UpdateProgress" BackgroundCssClass="modalPopup" />
                     objforcurve,
             { 
                 labels: objforlabelscurve,
+                valueRange: [0, 1.2],
                 legend: 'onmouseover',
                 labelsDiv: 'labelscurvediv',
                 labelsSeparateLines: true,

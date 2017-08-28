@@ -954,7 +954,7 @@ PopupControlID="UpdateProgress" BackgroundCssClass="modalPopup" />
                     ShowInfoMessage(' Filename: ' + JSON.stringify(pt.name) + '</br>' + ' Time: ' + JSON.stringify(pt.xval.toFixed(2)) + '</br>' + ' Deviation: ' + JSON.stringify(pt.yval.toFixed(2)));
                 },
                 title: 'Residuals',
-                ylabel: 'Deviation',
+                ylabel: 'Fitting Difference',
                 xlabel: 'Time (seconds)'
                 }
           );

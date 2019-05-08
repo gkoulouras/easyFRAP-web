@@ -13,4 +13,4 @@ To cite easyFRAP-web: <strong>EasyFRAP-web: a web-based tool for the analysis of
 
 <strong>Documentation:</strong>
 </br>
-A detailed how-to guide can be found at: http://easyfrap.vmnet.upatras.gr/GettingStarted/
+A detailed how-to-use guide can be found at: https://easyfrap.vmnet.upatras.gr/GettingStarted/

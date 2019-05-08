@@ -5,6 +5,7 @@ Visit https://easyfrap.vmnet.upatras.gr/ to use this tool. Developed and maintai
 
 To cite easyFRAP-web: <strong>EasyFRAP-web: a web-based tool for the analysis of fluorescence recovery after photobleaching data</strong> (doi: <a href="https://doi.org/10.1093/nar/gky508" target="_blank">https://doi.org/10.1093/nar/gky508</a> )
 
+</br></br> 
 
 <strong>Main Page:</strong>
 </br>
